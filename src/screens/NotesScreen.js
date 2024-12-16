@@ -21,12 +21,11 @@ const NotesScreen = () => {
   const handlePress = (noteId) => {
     if (isSelectionMode) {
       const updatedSelectedNotes = selectedNotes.includes(noteId)
-        ? selectedNotes.filter((id) => id !== noteId) 
-        : [...selectedNotes, noteId]; 
-  
+        ? selectedNotes.filter((id) => id !== noteId)
+        : [...selectedNotes, noteId];
+
       setSelectedNotes(updatedSelectedNotes);
-  
-    
+
       if (updatedSelectedNotes.length === 0) {
         setIsSelectionMode(false);
       }
@@ -37,7 +36,6 @@ const NotesScreen = () => {
       });
     }
   };
-  
 
   const handleDelete = () => {
     console.log('Notas excluídas:', selectedNotes);
@@ -49,6 +47,10 @@ const NotesScreen = () => {
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <Text style={styles.title}>Todas as notas</Text>
+
+        <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate('Perfil')}>
+            <Text style={styles.buttonTextProfile}>Ver perfil</Text>
+        </TouchableOpacity>
 
         <View style={styles.cardsContainer}>
           {notes.map((note) => (
@@ -107,7 +109,7 @@ const styles = StyleSheet.create({
     letterSpacing: -1,
   },
   cardsContainer: {
-    paddingTop: 16,
+    paddingTop: 8,
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
@@ -169,8 +171,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#ff0000',
     marginBottom: 16,
   },
+  secondaryButton: {
+    display: 'flex',
+    padding: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    borderRadius: 30,
+    borderColor: '#000',
+    borderWidth: 1,
+    marginBottom: 16,
+  },
   buttonText: {
     color: '#fff',
+    fontFamily: 'Inter_700Bold',
+  },
+  buttonTextProfile: {
+    color: '#000',
     fontFamily: 'Inter_700Bold',
   },
 });

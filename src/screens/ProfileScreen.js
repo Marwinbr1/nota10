@@ -5,13 +5,13 @@ import { useNavigation } from '@react-navigation/native';
 
 const ProfileScreen = () => {
     const navigation = useNavigation();
-    
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Nota 10</Text>
       <Text style={styles.name}>Marcos Winícios</Text>
       <Text style={styles.email}>marcoswinisil@gmail.com</Text>
-      <TouchableOpacity style={styles.primaryButton} onPress={() => navigation.goBack()}>
+      <TouchableOpacity style={styles.primaryButton}  onPress={() => navigation.navigate('Login')}>
         <Text style={styles.buttonText}>Logout</Text>
       </TouchableOpacity>
     </View>

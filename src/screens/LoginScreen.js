@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Shrikhand_400Regular',
     color: '#000',
     lineHeight: 56,
-    letterSpacing: -1,
+    letterSpacing: 2,
   },
   input: {
     width: '100%',
